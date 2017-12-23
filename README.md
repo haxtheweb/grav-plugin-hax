@@ -18,10 +18,19 @@ You should now have all the plugin files under:
 
 	GRAV-INSTALL-ROOT/user/plugins/hax
 
-# Usage
+# Simple Usage
 
 Run `bower install` inside the `GRAV-INSTALL-ROOT/user/plugins/hax`
 
+# Better usage
+
+Symlink over from the `GRAV-INSTALL-ROOT/user/plugins/hax` to ../../webcomponents/EQUIVALENT-OF-BOWER-COMPONENTS-DIRECTORY. This will make your life a lot easier down the road!
+
+Run something like:
+```
+GRAV-INSTALL-ROOT/user/plugins/hax
+
+```
 
 ## Configuration
 
