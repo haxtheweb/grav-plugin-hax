@@ -1,0 +1,40 @@
+name: HAX
+version: 1.0.1
+description: "HAX Headless authoring eXperience made available to GravCMS"
+icon: google
+author:
+  name: Bryan Ollendyke
+  email: bto108@psu.edu
+  url: https://www.elmsln.org/
+homepage: https://github.com/elmsln/grav-plugin-hax
+keywords: webcomponents, hax, polymer, plugin
+bugs: https://github.com/elmsln/grav-plugin-hax/issues
+license: Apache 2.0
+
+form:
+  validation: strict
+  fields:
+    enabled:
+      type: toggle
+      label: Plugin Status
+      highlight: 1
+      default: 1
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool
+    offset_left:
+      type: textfield
+      label: Left offset
+      highlight: 1
+      default: 0
+      validate:
+        type: int
+    autoload_element_list:
+      type: textfield
+      label: Elements to autoload (space separated)
+      highlight: 1
+      default: 'video-player wikipedia-query pdf-element lrn-table media-image'
+      validate:
+        type: string
