@@ -1,0 +1,16 @@
+{% block field %}
+	<div class="form-field {{ field.classes|default('') }}">
+		<div class="form-data">
+			<cms-hax
+				body-offset-left="{{ field.offsetLeft }}"
+				class="hax-editor"
+				name="{{ (scope ~ field.name)|fieldName }}"
+			>
+			{{ field.autoload }}
+		  <marked-element markdown="{{ value|join("\n")|e("html") }}">
+		  <div slot="markdown-html"></div>
+		  </marked-element>
+		  </cms-hax>
+		</div>
+	</div>
+{% endblock %}

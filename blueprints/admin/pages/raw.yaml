@@ -1,0 +1,15 @@
+title: PLUGIN_ADMIN.DEFAULT
+'@extends':
+    type: raw
+    context: blueprints://admin/pages
+
+form:
+  fields:
+    tabs:
+      fields:
+        content:
+          fields:
+            content:
+              type: hax
+              validate:
+                type: textarea

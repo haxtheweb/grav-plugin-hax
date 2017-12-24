@@ -1,3 +1,4 @@
 bower_components
 /.idea
 /config.codekit3
+sftp-config.json
