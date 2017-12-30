@@ -43,7 +43,8 @@
     "a11y-gif-player": "LRNWebComponents/a11y-gif-player#^0.0.2",
     "paper-dialog-scrollable": "PolymerElements/paper-dialog-scrollable#^2.1.0",
     "aframe-player": "LRNWebComponents/aframe-player#^0.0.1",
-    "cms-hax": "LRNWebComponents/cms-hax"
+    "cms-hax": "LRNWebComponents/cms-hax",
+    "gravcms-hax": "LRNWebComponents/gravcms-hax"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",

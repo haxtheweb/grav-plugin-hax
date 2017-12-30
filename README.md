@@ -8,6 +8,7 @@ HAX is a [Grav](http://github.com/getgrav/grav) plugin that can be used to get t
 
 The simplest way to install this plugin is via the [Grav Package Manager (GPM)](http://learn.getgrav.org/advanced/grav-gpm).  From the root of your Grav install type:
 
+    bin/gpm install webcomponents
     bin/gpm install hax
 
 ## Manual Installation
@@ -17,6 +18,8 @@ If for some reason you can't use GPM you can manually install this plugin. Downl
 You should now have all the plugin files under:
 
 	GRAV-INSTALL-ROOT/user/plugins/hax
+
+Also note that if you do this method you will need to install the webcomponents plugin as well.
 
 # Simple Usage
 

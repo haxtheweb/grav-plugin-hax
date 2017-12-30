@@ -1,0 +1,15 @@
+hax-panel * {
+  box-sizing: content-box;
+}
+hax-panel .label {
+  background: transparent;
+  color: black;
+  vertical-align: unset;
+  border-radius: unset;
+  height: unset;
+  min-width: unset;
+  line-height: unset;
+  display: unset;
+  text-align: unset;
+  margin-right: unset;
+}

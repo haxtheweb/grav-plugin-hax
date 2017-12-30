@@ -31,19 +31,14 @@ class HAXPlugin extends Plugin {
       $elementstring = $this->config->get('plugins.hax.autoload_element_list');
       // discover and autoload our components
       $assets = $this->grav['assets'];
-      // directory they live in physically
-      $file = $this->getBaseURL() . 'elements/_build/build.html';
+      $file = $this->getBaseURL() . 'elements/gravcms-hax/gravcms-hax.html';
       $imports = $this->createHTMLImport($file) . "\n";
-      $file = $this->getBaseURL() . 'elements/cms-hax/cms-hax.html';
-      $imports .= $this->createHTMLImport($file) . "\n";
-      $file = $this->getBaseURL() . 'elements/marked-element/marked-element.html';
-      $imports .= $this->createHTMLImport($file) . "\n";
       // build the inline import
       $inline = "
   </script>" . $imports . "<script>";
-      // add it into the document
+      $assets->addCSS('plugin://hax/hax.css', array('priority' => 103, 'group' => 'head'));
+       // add it into the document
       $assets->addInlineJs($inline, array('priority' => 103, 'group' => 'head'));
-      // @todo wrap body text in cms-hax tag w/ variable in there
       // blow up based on space
       $elements = explode(' ', $elementstring);
       $autoload = '';
@@ -53,8 +48,8 @@ class HAXPlugin extends Plugin {
           $autoload .= '<' . $element . ' slot="autoloader">' . '</' . $element . '>';
         }
       }
-      $this->grav['twig']->field['autoload'] = $autoload;
-      $this->grav['twig']->field['offsetLeft'] = $offsetLeft;
+      $this->grav['twig']->twig_vars['autoloadedGizmos'] = $autoload;
+      $this->grav['twig']->twig_vars['bodyOffsetLeft'] = $offsetLeft;
     }
   }
   /**

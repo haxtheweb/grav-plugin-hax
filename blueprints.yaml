@@ -28,7 +28,7 @@ form:
       type: textfield
       label: Left offset
       highlight: 1
-      default: 0
+      default: -22
       validate:
         type: int
     autoload_element_list:
