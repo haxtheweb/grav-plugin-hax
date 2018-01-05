@@ -41,14 +41,38 @@ class HAXPlugin extends Plugin {
       $assets->addInlineJs($inline, array('priority' => 103, 'group' => 'head'));
       // blow up based on space
       $elements = explode(' ', $elementstring);
-      $autoload = '';
+      $haxSlotArea = '';
       foreach ($elements as $element) {
         // sanity check
         if (!empty($element)) {
-          $autoload .= '<' . $element . ' slot="autoloader">' . '</' . $element . '>';
+          $haxSlotArea .= '<' . $element . ' slot="autoloader">' . '</' . $element . '>';
         }
       }
-      $this->grav['twig']->twig_vars['autoloadedGizmos'] = $autoload;
+      $location = '';
+      $paths2 = $this->grav['uri'];
+      $paths = $this->grav['uri']->paths();
+      // Remove the "admin" and "pages" from paths
+      foreach ($paths as $key => $path) {
+        if ($key > 1) {
+          $location .= "/" . $path ;
+        }
+      }
+      // if modular, make sure this doesn't run through a template or it'll brick
+      if ($this->grav['pages']->find($location)->modular()) {
+        $this->grav['pages']->find($location)->modularTwig(false);
+        $pagebody = $this->grav['pages']->find($location)->content();
+        $this->grav['pages']->find($location)->modularTwig(true);
+      }
+      else {
+        $pagebody = $this->grav['pages']->find($location)->content();
+      }
+      // strip off wrapper cruft if it exists
+      if (strpos($pagebody, '<div class="modular-row form ">')) {
+        $pagebody = str_replace ('<div class="modular-row form ">', '', $pagebody);
+        $pagebody .= substr($pagebody, 0, strrpos($pagebody, '</div>'));
+      }
+      $haxSlotArea .= $pagebody;
+      $this->grav['twig']->twig_vars['haxSlotArea'] = $haxSlotArea;
       $this->grav['twig']->twig_vars['bodyOffsetLeft'] = $offsetLeft;
     }
   }
