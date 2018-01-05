@@ -57,14 +57,18 @@ class HAXPlugin extends Plugin {
           $location .= "/" . $path ;
         }
       }
-      // if modular, make sure this doesn't run through a template or it'll brick
-      if ($this->grav['pages']->find($location)->modular()) {
-        $this->grav['pages']->find($location)->modularTwig(false);
-        $pagebody = $this->grav['pages']->find($location)->content();
-        $this->grav['pages']->find($location)->modularTwig(true);
-      }
-      else {
-        $pagebody = $this->grav['pages']->find($location)->content();
+      $pagebody = '';
+      // ensure we have this otherwise it's a new page
+      if (method_exists($this->grav['pages']->find($location),'modular')) {
+        // if modular, make sure this doesn't run through a template or it'll brick
+        if ($this->grav['pages']->find($location)->modular()) {
+          $this->grav['pages']->find($location)->modularTwig(false);
+          $pagebody = $this->grav['pages']->find($location)->content();
+          $this->grav['pages']->find($location)->modularTwig(true);
+        }
+        else {
+          $pagebody = $this->grav['pages']->find($location)->content();
+        }
       }
       // strip off wrapper cruft if it exists
       if (strpos($pagebody, '<div class="modular-row form ">')) {
