@@ -1,6 +1,6 @@
 {
   "name": "hax",
-  "description": "HAX bower dependencies for Drupal",
+  "description": "HAX bower dependencies",
   "main": "hax.module",
   "dependencies": {
     "polymer": "Polymer/polymer#^1.10.1",
@@ -44,7 +44,7 @@
     "paper-dialog-scrollable": "PolymerElements/paper-dialog-scrollable#^2.1.0",
     "aframe-player": "LRNWebComponents/aframe-player#^0.0.1",
     "cms-hax": "LRNWebComponents/cms-hax",
-    "gravcms-hax": "LRNWebComponents/gravcms-hax"
+    "wysiwyg-hax": "LRNWebComponents/wysiwyg-hax"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",

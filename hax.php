@@ -31,7 +31,7 @@ class HAXPlugin extends Plugin {
       $elementstring = $this->config->get('plugins.hax.autoload_element_list');
       // discover and autoload our components
       $assets = $this->grav['assets'];
-      $file = $this->getBaseURL() . 'bower_components/gravcms-hax/gravcms-hax.html';
+      $file = $this->getBaseURL() . 'bower_components/wysiwyg-hax/wysiwyg-hax.html';
       $imports = $this->createHTMLImport($file) . "\n";
       // build the inline import
       $inline = "
