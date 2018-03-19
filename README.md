@@ -23,17 +23,7 @@ Also note that if you do this method you will need to install the webcomponents 
 
 # Simple Usage
 
-Run `bower install` inside the `GRAV-INSTALL-ROOT/user/plugins/hax`
-
-# Better usage
-
-Symlink over from the `GRAV-INSTALL-ROOT/user/plugins/hax` to ../../webcomponents/EQUIVALENT-OF-BOWER-COMPONENTS-DIRECTORY. This will make your life a lot easier down the road!
-
-Run something like:
-```
-GRAV-INSTALL-ROOT/user/plugins/hax
-
-```
+Create this folder if it doesn't exist yet: `GRAV-INSTALL-ROOT/user/webcomponents`. Copy `GRAV-INSTALL-ROOT/user/plugins/hax/bower.json` to `GRAV-INSTALL-ROOT/user/webcomponents/bower.json`. Then go to `GRAV-INSTALL-ROOT/user/webcomponents` and run `bower install`. Answer any questions about dependencies that it has (we try to auto select these as best we can).
 
 ## Configuration
 
