@@ -1,13 +1,13 @@
 {% block field %}
 	<div class="form-field {{ field.classes|default('') }}">
 		<div class="form-data">
-			<gravcms-hax
+			<wysiwyg-hax
 				body-offset-left="{{ bodyOffsetLeft }}"
 				field-name="{{ (scope ~ field.name)|fieldName }}"
 				class="hax-editor"
 			>
 			{{ haxSlotArea|raw }}
-		  </gravcms>
+		  </wysiwyg-hax>
 		</div>
 	</div>
 {% endblock %}
