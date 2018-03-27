@@ -3,7 +3,6 @@ hax-panel * {
 }
 hax-panel .label {
   background: transparent;
-  color: black;
   vertical-align: unset;
   border-radius: unset;
   height: unset;
