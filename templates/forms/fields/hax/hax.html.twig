@@ -2,6 +2,7 @@
 	<div class="form-field {{ field.classes|default('') }}">
 		<div class="form-data">
 			<wysiwyg-hax
+				app-store-connection='{{ appStoreConnection }}'
 				body-offset-left="{{ bodyOffsetLeft }}"
 				field-name="{{ (scope ~ field.name)|fieldName }}"
 				class="hax-editor"
