@@ -1,6 +1,6 @@
 enabled: true
 autoload_element_list: 'video-player wikipedia-query lrn-table media-image'
-offset_left: -16
+offset_left: -48
 youtube_key: ''
 memegenerator_key: ''
 vimeo_key: ''
