@@ -27,6 +27,8 @@ Create this folder if it doesn't exist yet: `GRAV-INSTALL-ROOT/user/webcomponent
 
 ## Configuration
 
+Important note: HAX generates HTML and while Grav can handle HTML, it's Markdown parser can get angry about HTML tags + no endlines. As HAX tries to generate markup automatically it can get mad and it will appear that content disappears, however this is the Markdown parser conflicting with HTML. Disable markdown processing on posts that you use HAX with and it should be fine.
+
 HAX is **enabled** by default.  You can change this behavior by setting `enasbled: false` in the plugin's configuration.  Simply copy the `user/plugins/hax/hax.yaml` into `user/config/plugins/hax.yaml` and make your modifications. There is also a variable to adjust positioning of the hax context menus based on theme interference as well as what elements to auto-load (or attempt to) during spin up.
 
 ```
