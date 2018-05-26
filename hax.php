@@ -98,7 +98,7 @@ class HAXPlugin extends Plugin {
    * @return string  The base path to the user / webcomponents directory
    */
   public function getBaseURL() {
-    return $this->grav['base_url'] . '/user/webcomponents/';
+    return $this->grav['base_url'] . '/user/data/webcomponents/';
   }
 
   /**
@@ -106,7 +106,7 @@ class HAXPlugin extends Plugin {
    * @return string  The base path to the user / webcomponents directory
    */
   public function webcomponentsDir() {
-    return getcwd() . '/user/webcomponents/';
+    return getcwd() . '/user/data/webcomponents/';
   }
   /**
    * Simple HTML Import render.
