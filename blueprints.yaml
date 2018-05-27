@@ -11,6 +11,11 @@ keywords: webcomponents,hax,polymer,plugin
 bugs: https://github.com/elmsln/grav-plugin-hax/issues
 license: Apache 2.0
 
+dependencies:
+  - admin
+  - atools
+  - webcomponents
+
 form:
   validation: strict
   fields:

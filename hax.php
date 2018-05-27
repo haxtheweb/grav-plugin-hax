@@ -7,6 +7,9 @@ use \Grav\Common\Utils;
 use \Grav\Common\Page\Page;
 use \Grav\Common\Session;
 use RocketTheme\Toolbox\Event\Event;
+use RocketTheme\Toolbox\File\File;
+use Symfony\Component\Yaml\Yaml;
+use Grav\Plugin\AtoolsPlugin;
 
 define('HAX_DEFAULT_OFFSET', 0);
 define('HAX_DEFAULT_ELEMENTS', 'video-player wikipedia-query pdf-element lrn-table media-image');
@@ -16,6 +19,12 @@ class HAXPlugin extends Plugin {
     return ['onPluginsInitialized' => ['onPluginsInitialized', 0], 'onTwigSiteVariables' => ['onTwigSiteVariables', 0]];
   }
   public function onPluginsInitialized() {
+      // Verify installation files.
+      if (!($this->verifyWebcomponentsInstallation())){
+        dump('failed to verify');
+        return;
+      }
+
     if($this->isAdmin()) {
       $this->grav['locator']->addPath('blueprints', '', __DIR__ . DS . 'blueprints');
       $this->enable(['onTwigTemplatePaths' => ['onTwigTemplatePaths', 999]]);
@@ -31,6 +40,8 @@ class HAXPlugin extends Plugin {
       $elementstring = $this->config->get('plugins.hax.autoload_element_list');
       // discover and autoload our components
       $assets = $this->grav['assets'];
+      // Webcomponents plugin doesn't include the polyfill for admin editing pages. Adding it here.
+      $assets->addJS($this->getBaseURL() . 'bower_components/webcomponentsjs/webcomponents-lite.min.js', array('priority' => 1000, 'group' => 'head'));
       $file = $this->getBaseURL() . 'bower_components/wysiwyg-hax/wysiwyg-hax.html';
       $imports = $this->createHTMLImport($file) . "\n";
       // build the inline import
@@ -112,7 +123,7 @@ class HAXPlugin extends Plugin {
    * Simple HTML Import render.
    */
   public function createHTMLImport($path, $rel = 'import') {
-    return '<link rel="' . $rel . '" href="' . $path . '">';
+    return '<link rel="' . $rel . '" href="' . $path . '" />';
   }
 
   /**
@@ -1049,4 +1060,32 @@ class HAXPlugin extends Plugin {
       ),
     );
   }
+
+    /**
+     * Check if webcomponents are installed.
+     */
+    private function verifyWebcomponentsInstallation() {
+
+      $grav = new Grav();
+      $required_files = array(
+          $this->webcomponentsDir() . 'bower_components/webcomponentsjs/webcomponents-lite.min.js',
+          $this->webcomponentsDir() . 'bower_components/wysiwyg-hax/wysiwyg-hax.html',
+      );
+
+      // Check if webcomponents plugin is installed and enabled.
+      if (!isset($grav::instance()['config']['plugins']['webcomponents']) || $grav::instance()['config']['plugins']['webcomponents']['enabled'] == false){
+        $message = "Webcomponents plugin is not installed/ enabled.";
+        AtoolsPlugin::disablePlugin($message, 'error', 'hax');
+        return false;
+      }
+
+      foreach ($required_files as $file) {
+          if (!file_exists($file)) {
+              $message = 'Missing Hax dependency file at ' . $file;
+              AtoolsPlugin::disablePlugin($message, 'error', 'hax');
+              return false;
+          }
+      }
+      return true;
+    }
 }
