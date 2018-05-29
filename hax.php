@@ -123,7 +123,7 @@ class HAXPlugin extends Plugin {
    * Simple HTML Import render.
    */
   public function createHTMLImport($path, $rel = 'import') {
-    return '<link rel="' . $rel . '" href="' . $path . '" />';
+    return '<link rel="' . $rel . '" href="' . $path . '">';
   }
 
   /**
