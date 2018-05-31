@@ -10,6 +10,7 @@ use RocketTheme\Toolbox\Event\Event;
 use RocketTheme\Toolbox\File\File;
 use Symfony\Component\Yaml\Yaml;
 use Grav\Plugin\AtoolsPlugin;
+use Grav\Plugin\WebcomponentsPlugin;
 
 define('HAX_DEFAULT_OFFSET', 0);
 define('HAX_DEFAULT_ELEMENTS', 'video-player wikipedia-query pdf-element lrn-table media-image');
@@ -21,11 +22,11 @@ class HAXPlugin extends Plugin {
   public function onPluginsInitialized() {
       // Verify installation files.
       if (!($this->verifyWebcomponentsInstallation())){
-        dump('failed to verify');
         return;
       }
 
-    if($this->isAdmin()) {
+    // Only use HAX if in normal admin mode, not expert mode.
+    if($this->isAdmin() && ($this->grav['uri']->param("mode") != "expert")) {
       $this->grav['locator']->addPath('blueprints', '', __DIR__ . DS . 'blueprints');
       $this->enable(['onTwigTemplatePaths' => ['onTwigTemplatePaths', 999]]);
     }
@@ -41,7 +42,7 @@ class HAXPlugin extends Plugin {
       // discover and autoload our components
       $assets = $this->grav['assets'];
       // Webcomponents plugin doesn't include the polyfill for admin editing pages. Adding it here.
-      $assets->addJS($this->getBaseURL() . 'bower_components/webcomponentsjs/webcomponents-lite.min.js', array('priority' => 1000, 'group' => 'head'));
+      $assets->addJS($this->getBaseURL() . 'bower_components/webcomponentsjs/' . WebcomponentsPlugin::polyfillLibrary(), array('priority' => 1000, 'group' => 'head'));
       $file = $this->getBaseURL() . 'bower_components/wysiwyg-hax/wysiwyg-hax.html';
       $imports = $this->createHTMLImport($file) . "\n";
       // build the inline import
@@ -1068,7 +1069,7 @@ class HAXPlugin extends Plugin {
 
       $grav = new Grav();
       $required_files = array(
-          $this->webcomponentsDir() . 'bower_components/webcomponentsjs/webcomponents-lite.min.js',
+          $this->webcomponentsDir() . 'bower_components/webcomponentsjs/' . WebcomponentsPlugin::polyfillLibrary(),
           $this->webcomponentsDir() . 'bower_components/wysiwyg-hax/wysiwyg-hax.html',
       );
 
