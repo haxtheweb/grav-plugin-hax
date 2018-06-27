@@ -851,14 +851,15 @@ class HAXPlugin extends Plugin {
         "protocol": "https",
         "url": "en.wikipedia.org",
         "data": {
-          "action":"query",
-          "list":"search",
-          "format":"json"
+          "action": "query",
+          "list": "search",
+          "format": "json",
+          "origin": "*"
         },
         "operations": {
           "browse": {
             "method": "GET",
-            "endPoint": "w/api.php",
+            "endPoint": "w\/api.php",
             "pagination": {
               "style": "offset",
               "props": {
@@ -871,16 +872,15 @@ class HAXPlugin extends Plugin {
                 "type": "string"
               }
             },
-            "data": {
-            },
+            "data": {},
             "resultMap": {
+              "image": "https://en.wikipedia.org/static/images/project-logos/enwiki.png",
               "defaultGizmoType": "content",
               "items": "query.search",
               "preview": {
                 "title": "title",
                 "details": "snippet",
-                "image": "pageid",
-                "id": "pageid"
+                "id": "title"
               },
               "gizmo": {
                 "_url_source": "https://en.wikipedia.org/wiki/<%= id %>",
