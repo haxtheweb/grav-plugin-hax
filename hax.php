@@ -77,7 +77,6 @@ class HAXPlugin extends Plugin {
         $pagebody = str_replace ('<div class="modular-row form ">', '', $pagebody);
         $pagebody .= substr($pagebody, 0, strrpos($pagebody, '</div>'));
       }
-      $haxSlotArea .= '<template>' . $pagebody . '</template>';
       // work on the app store based on internal settings
 	  $apikeys = array();
 	  $baseApps = $this->baseSupportedApps();
@@ -97,7 +96,7 @@ class HAXPlugin extends Plugin {
 	  	'stax' => $this->loadBaseStax(),
 	  );
       $this->grav['twig']->twig_vars['appStoreConnection'] = json_encode($appStoreConnection);
-      $this->grav['twig']->twig_vars['haxSlotArea'] = $haxSlotArea;
+      $this->grav['twig']->twig_vars['haxSlotArea'] = '<template>' . $pagebody . '</template>';
       $this->grav['twig']->twig_vars['bodyOffsetLeft'] = $offsetLeft;
     }
   }
