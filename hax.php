@@ -87,7 +87,7 @@ class HAXPlugin extends Plugin {
         $pagebody = str_replace ('<div class="modular-row form ">', '', $pagebody);
         $pagebody .= substr($pagebody, 0, strrpos($pagebody, '</div>'));
       }
-      $haxSlotArea .= $pagebody;
+      $haxSlotArea .= '<template>' . $pagebody . '</template>';
       // work on the app store based on internal settings
 	  $apikeys = array();
 	  $baseApps = $this->baseSupportedApps();
