@@ -13,7 +13,7 @@ use Grav\Plugin\AtoolsPlugin;
 use Grav\Plugin\WebcomponentsPlugin;
 
 define('HAX_DEFAULT_OFFSET', 0);
-define('HAX_DEFAULT_ELEMENTS', 'video-player wikipedia-query pdf-element lrn-table media-image');
+define('HAX_DEFAULT_ELEMENTS', 'oer-schema lrn-aside grid-plate tab-list magazine-cover video-player image-compare-slider license-element self-check multiple-choice lrn-table hero-banner task-list media-image lrndesign-blockquote meme-maker a11y-gif-player paper-audio-player wikipedia-query lrn-vocab lrn-math person-testimonial citation-element code-editor place-holder stop-note q-r wave-player');
 
 class HAXPlugin extends Plugin {
   public static function getSubscribedEvents() {
@@ -1359,7 +1359,7 @@ class HAXPlugin extends Plugin {
 
     // Check if webcomponents plugin is installed and enabled.
     if (!isset($grav::instance()['config']['plugins']['webcomponents']) || $grav::instance()['config']['plugins']['webcomponents']['enabled'] == false){
-      $message = "Webcomponents plugin is not installed/ enabled.";
+      $message = "Webcomponents plugin is not installed / enabled.";
       AtoolsPlugin::disablePlugin($message, 'error', 'hax');
       return false;
     }
