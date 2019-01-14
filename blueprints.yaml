@@ -33,7 +33,7 @@ form:
       type: textfield
       label: Left offset
       highlight: 1
-      default: -48
+      default: 0
       validate:
         type: int
     autoload_element_list:
