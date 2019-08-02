@@ -1,5 +1,5 @@
 name: HAX
-version: 3.0.2
+version: 3.1.0
 description: "HAX Headless authoring eXperience made available to GravCMS"
 icon: google
 author:
@@ -29,13 +29,6 @@ form:
         0: Disabled
       validate:
         type: bool
-    offset_left:
-      type: textfield
-      label: Left offset
-      highlight: 1
-      default: 0
-      validate:
-        type: int
     autoload_element_list:
       type: textfield
       label: Elements to autoload (space separated)

@@ -12,7 +12,6 @@ use Symfony\Component\Yaml\Yaml;
 use Grav\Plugin\AtoolsPlugin;
 use Grav\Plugin\WebcomponentsPlugin;
 
-define('HAX_DEFAULT_OFFSET', 0);
 define('HAX_DEFAULT_ELEMENTS', 'oer-schema lrn-aside grid-plate tab-list magazine-cover video-player image-compare-slider license-element self-check multiple-choice lrn-table hero-banner task-list media-image lrndesign-blockquote meme-maker a11y-gif-player paper-audio-player wikipedia-query lrn-vocab lrn-math person-testimonial citation-element code-editor place-holder stop-note q-r wave-player');
 
 class HAXPlugin extends Plugin {
@@ -36,8 +35,6 @@ class HAXPlugin extends Plugin {
   }
   public function onTwigSiteVariables() {
     if($this->isAdmin() && strpos($this->grav['uri']->route(), $this->config['plugins']['admin']['route'] . '/pages/') !== false) {
-      // this is the admin area
-      $offsetLeft = $this->config->get('plugins.hax.offset_left');
       // discover and autoload our components
       $assets = $this->grav['assets'];
       $assets->addCSS('plugin://hax/hax.css', array('priority' => 103, 'group' => 'head'));
@@ -88,15 +85,7 @@ class HAXPlugin extends Plugin {
 	  );
       $this->grav['twig']->twig_vars['appStoreConnection'] = json_encode($appStoreConnection);
       $this->grav['twig']->twig_vars['haxSlotArea'] = '<template>' . $pagebody . '</template>';
-      $this->grav['twig']->twig_vars['bodyOffsetLeft'] = $offsetLeft;
     }
-  }
-  /**
-   * Return the base url for forming paths on the front end.
-   * @return string  The base path to the user / webcomponents directory
-   */
-  public function getBaseURL() {
-    return $this->grav['base_url'] . '/user/data/webcomponents/';
   }
   /**
    * returns an array of app store definitions based
