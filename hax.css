@@ -1,3 +1,4 @@
-hax-panel * {
-  box-sizing: content-box;
+hax-tray {
+  z-index:1251;
+  --hax-tray-wrapper-top:45;
 }
