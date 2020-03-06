@@ -1,3 +1,12 @@
 hax-tray {
   z-index:1251;
 }
+
+@media only all and (min-width: 74.938em) {
+  #admin-sidebar {
+    width: 300px !important; 
+  }
+  #admin-main {
+    margin-left: 300px !important;
+  }
+}
