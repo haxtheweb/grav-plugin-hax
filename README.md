@@ -34,7 +34,7 @@ which you can also modify via the UI.
 
 ```yaml
 enabled: true # enabled by default
-autoload_element_list: 'video-player wikipedia-query pdf-element lrn-table media-image' # a sample list of elements to expose.
+autoload_element_list: '{"video-player": "@lrnwebcomponents/video-player/video-player.js","grid-plate": "@lrnwebcomponents/grid-plate/grid-plate.js","license-element": "@lrnwebcomponents/license-element/license-element.js","md-block": "@lrnwebcomponents/md-block/md-block.js","meme-maker": "@lrnwebcomponents/meme-maker/meme-maker.js","stop-note": "@lrnwebcomponents/stop-note/stop-note.js","wikipedia-query": "@lrnwebcomponents/wikipedia-query/wikipedia-query.js","cms-token": "@lrnwebcomponents/cms-hax/lib/cms-token.js","lrn-math-controller": "@lrnwebcomponents/lrn-math/lrn-math.js","retro-card": "@lrnwebcomponents/retro-card/retro-card.js","rss-items": "@lrnwebcomponents/rss-items/rss-items.js","self-check": "@lrnwebcomponents/self-check/self-check.js","team-member": "@lrnwebcomponents/team-member/team-member.js"}' # a sample list of elements to expose.
 ```
 ## Settings
 

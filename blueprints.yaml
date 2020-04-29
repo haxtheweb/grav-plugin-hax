@@ -1,5 +1,5 @@
 name: HAX
-version: 3.6.0
+version: 3.9.0
 description: "HAX Headless authoring eXperience made available to GravCMS"
 icon: google
 author:
@@ -29,57 +29,99 @@ form:
         0: Disabled
       validate:
         type: bool
-    autoload_element_list:
-      type: textfield
-      label: Elements to autoload (space separated)
+    location:
+      type: hidden
+      label: Web components location
       highlight: 1
-      default: 'video-player wikipedia-query pdf-element lrn-table media-image'
+      default: 'https://cdn.webcomponents.psu.edu/cdn/'
+      validate:
+        type: string
+    other:
+      type: hidden
+      label: Other location
+      highlight: 1
+      default: ''
+      validate:
+        type: string
+    pk:
+      type: hidden
+      label: Public Key
+      highlight: 1
+      default: ''
+      validate:
+        type: string
+    stax:
+      type: hidden
+      label: Stax JSON
+      highlight: 1
+      default: '[]'
+      validate:
+        type: string
+    blox:
+      type: hidden
+      label: Blox JSON
+      highlight: 1
+      default: '[]'
+      validate:
+        type: string
+    autoload_element_list:
+      type: hidden
+      label: Elements to autoload
+      highlight: 1
+      default: '{"video-player": "@lrnwebcomponents/video-player/video-player.js","grid-plate": "@lrnwebcomponents/grid-plate/grid-plate.js","license-element": "@lrnwebcomponents/license-element/license-element.js","md-block": "@lrnwebcomponents/md-block/md-block.js","meme-maker": "@lrnwebcomponents/meme-maker/meme-maker.js","stop-note": "@lrnwebcomponents/stop-note/stop-note.js","wikipedia-query": "@lrnwebcomponents/wikipedia-query/wikipedia-query.js","cms-token": "@lrnwebcomponents/cms-hax/lib/cms-token.js","lrn-math-controller": "@lrnwebcomponents/lrn-math/lrn-math.js","retro-card": "@lrnwebcomponents/retro-card/retro-card.js","rss-items": "@lrnwebcomponents/rss-items/rss-items.js","self-check": "@lrnwebcomponents/self-check/self-check.js","team-member": "@lrnwebcomponents/team-member/team-member.js"}'
       validate:
         type: string
     youtube_key:
-      type: textfield
+      type: hidden
       label: Youtube API Key
       highlight: 1
       default: ''
       validate:
         type: string
+    googlepoly_key:
+      type: hidden
+      label: Google poly API Key
+      highlight: 1
+      default: ''
+      validate:
+        type: string
     memegenerator_key:
-      type: textfield
+      type: hidden
       label: Meme Generator API Key
       highlight: 1
       default: ''
       validate:
         type: string
     vimeo_key:
-      type: textfield
+      type: hidden
       label: Vimeo API Key
       highlight: 1
       default: ''
       validate:
         type: string
     giphy_key:
-      type: textfield
+      type: hidden
       label: Giphy API Key
       highlight: 1
       default: ''
       validate:
         type: string
     unsplash_key:
-      type: textfield
+      type: hidden
       label: Unsplash API Key
       highlight: 1
       default: ''
       validate:
         type: string
     flickr_key:
-      type: textfield
+      type: hidden
       label: Flickr API Key
       highlight: 1
       default: ''
       validate:
         type: string
     pixabay_key:
-      type: textfield
+      type: hidden
       label: Pixabay API Key
       highlight: 1
       default: ''
