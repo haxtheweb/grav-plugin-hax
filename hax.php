@@ -1685,7 +1685,7 @@ class HAXPlugin extends Plugin {
               "haxcore-providerdetails-othertags": ""
             },
             "help": {
-              "haxcore-help-docs": "https://raw.githubusercontent.com/elmsln/HAXcms/master/HAXDocs.md"
+              "haxcore-help-docs": "https://haxtheweb.org/documentation"
             }
           }
         }

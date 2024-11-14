@@ -1,14 +1,14 @@
 name: HAX
-version: 3.9.0
+version: 9.0.6
 description: "HAX Headless authoring eXperience made available to GravCMS"
 icon: google
 author:
   name: Bryan Ollendyke
-  email: bto108@psu.edu
-  url: https://www.elmsln.org/
-homepage: https://github.com/elmsln/grav-plugin-hax
-keywords: webcomponents,hax,polymer,plugin
-bugs: https://github.com/elmsln/grav-plugin-hax/issues
+  email: hax@psu.edu
+  url: https://haxtheweb.org
+homepage: https://github.com/haxtheweb/grav-plugin-hax
+keywords: webcomponents,hax,lit,plugin
+bugs: https://github.com/haxtheweb/grav-plugin-hax/issues
 license: Apache 2.0
 
 dependencies:
@@ -78,20 +78,6 @@ form:
       default: ''
       validate:
         type: string
-    googlepoly_key:
-      type: hidden
-      label: Google poly API Key
-      highlight: 1
-      default: ''
-      validate:
-        type: string
-    memegenerator_key:
-      type: hidden
-      label: Meme Generator API Key
-      highlight: 1
-      default: ''
-      validate:
-        type: string
     vimeo_key:
       type: hidden
       label: Vimeo API Key
@@ -106,23 +92,9 @@ form:
       default: ''
       validate:
         type: string
-    unsplash_key:
-      type: hidden
-      label: Unsplash API Key
-      highlight: 1
-      default: ''
-      validate:
-        type: string
     flickr_key:
       type: hidden
       label: Flickr API Key
-      highlight: 1
-      default: ''
-      validate:
-        type: string
-    pixabay_key:
-      type: hidden
-      label: Pixabay API Key
       highlight: 1
       default: ''
       validate:
